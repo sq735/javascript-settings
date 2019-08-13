@@ -81,6 +81,21 @@ object id02Firefox : BuildType({
     }
 })
 
+object id07IE : BuildType({
+    templates(Template_1)
+    id("07IE")
+    name = "02. IE"
+
+    params {
+        param("Browser", "IE")
+    }
+
+    dependencies {
+        snapshot(id01FastTests) {
+        }
+    }
+})
+
 object id03DeployToStaging : BuildType({
     id("03DeployToStaging")
     name = "03. Deploy To Staging"
