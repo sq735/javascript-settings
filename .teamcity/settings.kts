@@ -37,6 +37,7 @@ project {
     buildType(id02Chrome)
     buildType(id02Firefox)
     buildType(id01FastTests)
+    buildType(id07IE)
 
     template(Template_1)
 }
