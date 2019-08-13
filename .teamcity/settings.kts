@@ -31,6 +31,8 @@ project {
 
     vcsRoot(HttpsGithubComG0t4teamcityCourseCards)
 
+	description = "My JS Project";
+
     buildType(id03DeployToStaging)
     buildType(id02Chrome)
     buildType(id02Firefox)
