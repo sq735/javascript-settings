@@ -111,6 +111,13 @@ object id03DeployToStaging : BuildType({
         snapshot(id02Firefox) {
         }
     }
+	
+	triggers {
+        vcs {
+            id = "vcsTrigger"
+            branchFilter = ""
+        }
+    }
 })
 
 object Template_1 : Template({
@@ -131,13 +138,6 @@ object Template_1 : Template({
             name = "Browser Tests"
             id = "RUNNER_7"
             scriptContent = "npm test -- --single-run --browsers %Browser% --colors false --reporters teamcity"
-        }
-    }
-
-    triggers {
-        vcs {
-            id = "vcsTrigger"
-            branchFilter = ""
         }
     }
 })
