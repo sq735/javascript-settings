@@ -36,8 +36,6 @@ project {
     buildType(id02Chrome)
     buildType(id02Firefox)
     buildType(id01FastTests)
-	buildType(id04IE)
-
 
     template(Template_1)
 }
@@ -82,27 +80,25 @@ object id02Firefox : BuildType({
     }
 })
 
-object id04IE : BuildType({
-    templates(Template_1)
-    id("07IE")
-    name = "02. IE"
-
-    params {
-        param("Browser", "IE")
-    }
-
-    dependencies {
-        snapshot(id01FastTests) {
-        }
-    }
-})
-
 object id03DeployToStaging : BuildType({
     id("03DeployToStaging")
     name = "03. Deploy To Staging"
 
     vcs {
         root(HttpsGithubComG0t4teamcityCourseCards)
+    }
+	
+	steps {
+        script {
+            name = "IIS Deploy"
+            id = "RUNNER_7"
+            scriptContent = """
+			
+			rmdir /S /Q \inetpub\wwwroot\
+			xcopy /S /I /Y app \inetpub\wwwroot\
+			
+			"""
+        }
     }
 
     dependencies {
